@@ -31,8 +31,7 @@ M.general = {
   n = {
     ["<leader>w"] = { "<cmd>w <CR>", "﬚  save file"},
     ["<leader>q"] = { "<cmd>qa! <CR>", "Quit"},
-    ["<leader>so"] = { "<cmd>source % <CR>", "source lua file" },
-    ["<leader>zz"] = {  "<cmd>lua lazygit_toggle()<CR>", "lazygit" },
+    ["<leader>so"] = { "<cmd>source % <CR>", "source lua file" }
   },
   t = {
      --  Nicer way to navigate in terminal
@@ -45,17 +44,6 @@ M.general = {
   v = {
     ["<"] = { "<gv", "unindent line" },
     [">"] = { ">gv", "indent line" }
-  }
-}
-
-M.nvterm = {
-  n = {
-    ["<leader>lz"] = {
-      function()
-        require("nvterm.terminal").send("lazygit", "float")
-      end,
-      "nvterm lazygit",
-    },
   }
 }
 
@@ -258,6 +246,25 @@ M.lspconfig = {
     --    end,
     --    "   list workspace folders",
     -- },
+  },
+}
+
+M.toggleterm = {
+  n = {
+    ["<leader>lg"] = {
+      function()
+        require("custom.plugins.toggleterm").lazygit_toggle()
+      end,
+      "open lazygit",
+    },
+  },
+  t = {
+    ["<leader>lg"] = {
+      function()
+        require("custom.plugins.toggleterm").lazygit_toggle()
+      end,
+      "open lazygit",
+    },
   },
 }
 

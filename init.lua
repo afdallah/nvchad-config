@@ -1,3 +1,9 @@
+local ok, toggleterm = pcall(require, "null-ls.sources")
+
+if not ok then
+  return print('Error loading toggleterm')
+end
+
 function _G.put(...)
   local objects = {}
   for i = 1, select('#', ...) do

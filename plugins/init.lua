@@ -38,10 +38,10 @@ return {
     module = ""
   },
   ["akinsho/toggleterm.nvim"] = {
-    -- cmd = "ToggleTerm",
-    module = { "toggleterm", "toggleterm.terminal" },
+    cmd = "ToggleTerm",
+    module = "custom.plugins.toggleterm",
     config = function()
-      require "custom.plugins.toggleterm"
+      require("custom.plugins.toggleterm").setup()
     end,
   },
 }
