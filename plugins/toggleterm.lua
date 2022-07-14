@@ -10,6 +10,7 @@ local M = {}
 
 local lazygit = terminal:new {
    cmd = "lazygit",
+   insert_mappings = false,
    dir = "git_dir",
    direction = "float",
    float_opts = {
@@ -30,8 +31,12 @@ end
 M.setup = function()
    toggleterm.setup {
       size = 20,
-      open_mapping = [[<c-\>]],
+      insert_mappings = false,
+      -- open_mapping = [[<c-\>]],
       hide_numbers = true,
+      shade_terminals = false,
+      highlight = {},
+
    }
 end
 

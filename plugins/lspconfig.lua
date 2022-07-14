@@ -1,17 +1,22 @@
 local M = {}
 
 M.setup_lsp = function(attach, capabilities)
-  local lspconfig = require "lspconfig"
+   capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+   }
 
-  -- lspservers with default config
-  local servers = { "html", "cssls", "emmet_ls", "tailwindcss", "tsserver", "jsonls", "volar", "eslint", 'theme_check', 'cssmodules_ls' }
+   local lspconfig = require "lspconfig"
 
-  for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-      on_attach = attach,
-      capabilities = capabilities,
-    }
-  end
+   -- lspservers with default config
+   local servers = { "html", "cssls", "emmet_ls", "tailwindcss", "tsserver", "jsonls", "volar", "eslint", 'theme_check', 'cssmodules_ls' }
+
+   for _, lsp in ipairs(servers) do
+      lspconfig[lsp].setup {
+         on_attach = attach,
+         capabilities = capabilities,
+      }
+   end
 end
 
 return M
